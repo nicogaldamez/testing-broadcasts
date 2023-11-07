@@ -1,0 +1,17 @@
+<%= link_to message,
+  class: class_names('p-3 border-t grid grid-cols-6 gap-10 group',
+    'unread' => message.unread
+  ) do %>
+
+  <span class="col-span-1 group-[.unread]:font-bold">
+    <%= message.from.name %>
+  </span>
+
+  <span class="col-span-4 group-[.unread]:font-bold">
+    <%= message.body.truncate(70) %>
+  </span>
+
+  <span class='col-span-1 group-[.unread]:font-bold text-right'>
+    <%= time_ago_in_words message.created_at %> ago
+  </span>
+<% end %>
